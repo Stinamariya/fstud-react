@@ -7,11 +7,16 @@ const ViewAll = () => {
     
         
     const fetchData =()=>{
-        axios.get(" https://anishpdm.github.io/dummy-api-new/student.json").then(
+        axios.get("https://courseapplogix.onrender.com/getdata").then(
             (response) => {
                 setData(response.data)
             }
-        ).catch().finally()
+        ).catch(
+          (error) => {
+            console.log(error.message)
+            alert(error.message)
+          }
+        ).finally()
     }
     useEffect(()=>fetchData(),[])
   return (
@@ -25,8 +30,8 @@ const ViewAll = () => {
                 <table class="table">
   <thead>
     <tr>
-      <th scope="col">First NAME</th>
-      <th scope="col">Last NAME</th>
+      <th scope="col">FIRST NAME</th>
+      <th scope="col">LAST NAME</th>
       <th scope="col">COLLEGE</th>
       <th scope="col">DOB</th> 
       <th scope="col">COURSE</th>
